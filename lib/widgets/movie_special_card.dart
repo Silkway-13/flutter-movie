@@ -22,9 +22,9 @@ class MovieSpecialCard extends StatelessWidget {
           width: width,
           margin: EdgeInsets.only(right: 10),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
-                image: NetworkImage(data.imgUrl), fit: BoxFit.cover),
+                image: NetworkImage(data.imgUrl), fit: BoxFit.fill),
           ),
           child: Icon(
             Icons.play_circle,

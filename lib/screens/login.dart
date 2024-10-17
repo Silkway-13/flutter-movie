@@ -75,6 +75,12 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextFormField(
                       controller: _passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Нууц үгээ оруулна уу!";
+                        }
+                        return null;
+                      },
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
