@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/Model/movie/index.dart';
-import 'package:movieapp/screens/movie_detail.dart';
+import 'package:movieapp/widgets/bottom_sheet.dart';
 
 class MovieSpecialCard extends StatelessWidget {
   final MovieModel data;
@@ -8,8 +8,10 @@ class MovieSpecialCard extends StatelessWidget {
   const MovieSpecialCard(this.data, {super.key});
 
   void _onCardTap(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (_) => MovieDetailPage(data)));
+    showModalBottomSheet(
+        context: context, builder: ((context) => MyBottomSheet(data)));
+    // Navigator.push(
+    //     context, MaterialPageRoute(builder: (_) => MovieDetailPage(data)));
   }
 
   @override

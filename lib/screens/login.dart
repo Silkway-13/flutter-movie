@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:movieapp/global_keys.dart';
+import 'package:movieapp/providers/common.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  bool _isLogged = false;
   final _formKey = GlobalKey<FormState>();
+
   final _phoneController = TextEditingController();
+
   final _passwordController = TextEditingController();
 
   void _onSubmit() {
     if (_formKey.currentState!.validate()) {
-      print("logged in");
+      Provider.of<CommonProvider>(GlobalKeys.navigatorKey.currentContext!,
+              listen: false)
+          .onLogin();
     }
   }
 
@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                         foregroundColor:
                             MaterialStateProperty.all(Colors.black),
                       ),
-                      onPressed: _onSubmit,
+                      onPressed: () => _onSubmit(),
                       child: Text("Нэвтрэх")),
                 )
               ],
